@@ -1,0 +1,7 @@
+environment : production
+user        : root
+group       : wheel
+port        : 80
+daemonize   : true
+rackup      : config.ru
+pid         : tmp/thin.pid
