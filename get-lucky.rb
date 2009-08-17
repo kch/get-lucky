@@ -2,6 +2,11 @@ require 'rubygems'
 require 'sinatra'
 require 'shortcuts'
 
+
+get '/' do
+  haml :shortcuts
+end
+
 get '/*' do
   @key  = request.host =~ /^(.*?)(?:\.|$)/ && $1
   url   = Shortcuts[@key] or return haml :fail
@@ -9,10 +14,20 @@ get '/*' do
   redirect url + query
 end
 
+
 __END__
 
-@@ fail
+@@ layout
 %html
-  %h1   No search defined for '#{@key}'
-  %h3   Existing searches:
-  %pre= Shortcuts.yml_string
+  %head
+    %title Get Lucky!
+  %body
+    = yield
+
+@@ fail
+%h1   No search defined for '#{@key}'
+=     haml :shortcuts
+
+@@ shortcuts
+%h3   Existing shortcuts:
+%pre= Shortcuts.yml_string
