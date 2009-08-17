@@ -23,6 +23,9 @@ namespace :thin do
   desc "Starts the thin server."
   task :start do exec "#{THIN} start" end
 
+  desc "Restarts the thin server."
+  task :restart do exec "#{THIN} restart" end
+
   desc "Stops the thin server."
   task :stop do exec "#{THIN} stop" end
 end
