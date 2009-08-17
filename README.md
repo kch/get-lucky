@@ -7,7 +7,7 @@ No dynamic code injection required.
 
 ## Initial setup
 
-  sudo rake hosts:update
+    sudo rake hosts:update
 
 
 ## Usage
@@ -26,7 +26,11 @@ In safari's location bar, type `go/ your search string`
 
 Yes, spaces, yes. Safari will honor them.
 
+See shortcuts.yml for all available searches. See below for customization.
+
 
 ## Customization
 
     sudo rake shortcuts:edit
+
+Note: If you edit shortcuts.yml manually, you must later call `sudo rake hosts:update`.
